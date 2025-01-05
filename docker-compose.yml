@@ -1,0 +1,42 @@
+services:
+  nextjs-app:
+    image: nextjs-app
+    container_name: nextjs-app
+    restart: unless-stopped
+    # command: sleep infinity
+    # command: ['npm', 'run', 'dev']
+    build:
+      context: .
+      dockerfile: Dockerfile
+    user: '${MY_UID}:${MY_GID}'
+    ports:
+      - '3001:3001'
+    volumes:
+      # bind mounts
+      - ./:/app
+      # mount .npmrc here
+
+      # volumes
+      - nextjs-app-node_modules:/app/node_modules
+      - nextjs-app-next:/app/.next
+      # untested
+      # Persist npm cache to avoid refetching on every container build/rebuild
+      - npm_cache:/home/node/.npm      
+    env_file:
+      - ./.env
+    networks:
+      - default 
+
+volumes:
+  nextjs-app-node_modules:
+  nextjs-app-next:
+  npm_cache:
+
+networks:
+  default:
+    name: nextjs-app-default
+    external: false
+
+# ------------------------------
+# reminder
+# docker exec -it nextjs-app /bin/bash

@@ -1,0 +1,92 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: theme('colors.slate.50');
+    --foreground: theme('colors.gray.800');
+
+    --muted: theme('colors.slate.100');
+    --muted-foreground: theme('colors.gray.500');
+
+    --popover: theme('colors.white');
+    --popover-foreground: theme('colors.gray.800');
+
+    --border: theme('colors.slate.200');
+    --input: theme('colors.slate.200');
+
+    --card: theme('colors.white');
+    --card-foreground: theme('colors.gray.800');
+
+    --primary: theme('colors.gray.800');
+    --primary-foreground: theme('colors.slate.50');
+
+    --secondary: theme('colors.slate.100');
+    --secondary-foreground: theme('colors.gray.800');
+
+    --tertiary-foreground: theme('colors.amber.500');
+
+    --accent: theme('colors.slate.100');
+    --accent-foreground: theme('colors.gray.800');
+
+    --destructive: theme('colors.red.500');
+    --destructive-foreground: theme('colors.slate.50');
+
+    --ring: theme('colors.slate.300');
+
+    --radius: 0.75rem; /* 12px */
+  }
+
+  .dark {
+    --background: theme('colors.neutral.900'); /* closest to #111111 */
+    --foreground: theme('colors.white');
+
+    --muted: theme('colors.gray.800');
+    --muted-foreground: theme('colors.neutral.400'); /* closest to #A1A1A1 */
+
+    --accent: theme('colors.gray.700');
+    --accent-foreground: theme('colors.white');
+
+    --popover: theme('colors.zinc.900'); /* closest to #191919 */
+    --popover-foreground: theme('colors.slate.400');
+
+    --border: theme('colors.neutral.700'); /* closest to #363636 */
+    --input: theme('colors.neutral.700'); /* closest to #363636 */
+
+    --card: theme('colors.zinc.900'); /* closest to #191919 */
+    --card-foreground: theme('colors.white');
+
+    --primary: theme('colors.white');
+    --primary-foreground: theme('colors.black'); /* #000000 */
+
+    --secondary: theme('colors.neutral.800'); /* closest to #222222 */
+    --secondary-foreground: theme('colors.white');
+
+    --tertiary-foreground: theme('colors.amber.300'); /* closest to #FCC85D */
+
+    --destructive: theme('colors.red.600');
+    --destructive-foreground: theme('colors.white');
+
+    --ring: theme('colors.gray.700');
+
+    /* 
+    lg: 12px,
+    md: 12px - 4px, // button
+    sm: 12px - 6px', 
+    */
+    --radius: 0.75rem; /* 12px */
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings:
+      'rlig' 1,
+      'calt' 1;
+  }
+}
